@@ -15,20 +15,20 @@ import com.actitime.pom.TaskListPage;
 public class CustomerModule extends BaseClass{
 	@Test
 	public void testCreateCustomer() throws InterruptedException, EncryptedDocumentException, IOException {
-		Reporter.log("CreateCustomer",true);
+		Reporter.log("Sheet1",true);
 		FileLib f=new FileLib();
-	String expectedCustomer = f.getExcelData("CreateCustomer", 1, 3);
-	String customerDescription = f.getExcelData("CreateCustomer", 1, 4);
+	String expectedCustomer = f.getExcelData("Sheet1", 1, 3);
+	String customerDescription = f.getExcelData("Sheet1", 1, 4);
 	HomePage h=new HomePage(driver);
 	h.setTasksTab();
 	TaskListPage t=new TaskListPage(driver);
-	t.getAddNewBtn().click();
-	t.getNewCustomerOption().click();
-	t.getEnterCustomerNameTbx().sendKeys(expectedCustomer);
-	t.getCustomerDescriptionTbx().sendKeys(customerDescription);
-	t.getSelectCustomerDD().click();
-	t.getOurCompanyTx().click();
-	t.getCreateCustomerBtn().click();
+	t.getAddNewBtn().click();Thread.sleep(2000);
+	t.getNewCustomerOption().click();Thread.sleep(2000);
+	t.getEnterCustomerNameTbx().sendKeys(expectedCustomer);Thread.sleep(2000);
+	t.getCustomerDescriptionTbx().sendKeys(customerDescription);Thread.sleep(2000);
+	t.getSelectCustomerDD().click();Thread.sleep(2000);
+	t.getOurCompanyTx().click();Thread.sleep(2000);
+	t.getCreateCustomerBtn().click();Thread.sleep(2000);
 	Thread.sleep(3000);
 	String actualCustomer = t.getActualCustomerLoc().getText();
 	Assert.assertEquals(actualCustomer, expectedCustomer);

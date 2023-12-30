@@ -28,7 +28,7 @@ public class BaseClass {
 	public void closeBrowser() throws InterruptedException {
 		Reporter.log("closeBrowser",true);
 		Thread.sleep(2000);
-		driver.close();
+		driver.quit();
 	}	
 	@BeforeMethod
 	public void login() throws IOException {
